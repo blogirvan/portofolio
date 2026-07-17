@@ -80,13 +80,13 @@
     <!-- Hero Section -->
     <section id="hero" class="relative min-h-screen flex flex-col justify-center items-center pt-20 px-6 product-gradient">
         <div class="absolute inset-0 flex items-center justify-center opacity-10 select-none pointer-events-none">
-            <h1 class="text-[20vw] font-black text-outline">iSTORE</h1>
+            <h1 class="text-[20vw] font-black text-outline">iStore</h1>
         </div>
 
         <div class="container mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
             <!-- Left Info -->
-            <div class="lg:col-span-4 text-center lg:text-left">
-                <h2 id="hero-title" class="text-6xl md:text-8xl font-black leading-none mb-6">INNOVATION.</h2>
+            <div class="lg:col-span-5 text-center lg:text-left relative z-20">
+                <h2 id="hero-title" class="text-5xl md:text-7xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-black leading-none mb-6 tracking-tight">INNOVATION.</h2>
                 <p id="hero-subtitle" class="text-gray-400 text-sm max-w-sm mx-auto lg:mx-0 leading-relaxed">
                     Tingkatkan produktivitas. Nikmati performa tanpa kompromi. Didesain untuk Anda yang menuntut kesempurnaan.
                 </p>
@@ -98,14 +98,14 @@
             </div>
 
             <!-- Center Visual -->
-            <div class="lg:col-span-4 flex justify-center py-10">
-                <div id="product-img-container" class="transition-all-custom scale-110">
+            <div class="lg:col-span-3 flex justify-center py-10 relative z-10">
+                <div id="product-img-container" class="transition-all-custom scale-100">
                     <canvas id="productCanvas" width="400" height="400" class="max-w-full h-auto"></canvas>
                 </div>
             </div>
 
             <!-- Right Detail -->
-            <div class="lg:col-span-4 glass-card p-8 rounded-lg max-w-sm mx-auto lg:ml-auto">
+            <div class="lg:col-span-4 glass-card p-8 rounded-lg max-w-sm mx-auto lg:ml-auto relative z-20">
                 <span class="text-[10px] font-bold tracking-[0.3em] text-blue-500 uppercase">New Arrival</span>
                 <h3 id="product-name" class="text-3xl font-bold mt-2">iPhone 15 Pro Max</h3>
                 <div class="flex items-center space-x-1 my-2">
@@ -391,7 +391,7 @@
                 productPrice.innerText = product.price;
                 drawProduct(index);
                 productImg.style.opacity = '1';
-                productImg.style.transform = 'scale(1.1)';
+                productImg.style.transform = 'scale(1)';
             }, 300);
 
             // Update active state on thumbs
