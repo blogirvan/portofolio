@@ -79,7 +79,7 @@
     </style>
 </head>
 <body class="min-h-screen bg-[#0a0a0c] text-white font-sans flex flex-col overflow-x-hidden selection:bg-red-500 selection:text-white">
-
+<body oncontextmenu='return false;' onkeydown='return false;' onmousedown='return true;'><span></span>
     <!-- --- HEADER / NAVBAR --- -->
     <header class="flex items-center justify-between px-6 py-4 md:px-12 md:py-6 relative z-40 border-b border-white/5">
         <div class="flex items-center cursor-pointer hover:opacity-80 transition-opacity" onclick="filterProducts('ALL')">
@@ -226,7 +226,7 @@
                     JUST<br/>DO<br/>IT.
                 </h2>
                 <p class="text-gray-400 text-sm md:text-base max-w-sm mx-auto md:mx-0 leading-relaxed uppercase tracking-wider">
-                    Lampaui batasan. Hancurkan rekor pribadi. Bermain autentik dengan konfigurasi gaya orisinal yang dirancang untuk kecepatan maksimal.
+                    Lampaui batas, pecahkan rekor pribadi, dan tampil autentik dengan konfigurasi gaya orisinal yang dirancang untuk kecepatan maksimal.
                 </p>
             </div>
 
@@ -332,11 +332,12 @@
             { id: 1, name: 'NIKE AIR MAX', category: 'TRAINING', price: 'Rp 1.989.000', rawPrice: 1989000, rating: 4, image: 'nike-airmax.png', accentColor: '#ef4444', tags: ['PRIA', 'SNKRS'] },
             { id: 2, name: 'NIKE AIR MAX 270', category: 'RUNNING', price: 'Rp 2.849.000', rawPrice: 2849000, rating: 5, image: 'Nike-AirMax270.png', accentColor: '#FF00CC', tags: ['WANITA', 'SNKRS', 'DISKON'] },
             { id: 3, name: 'NIKE ZOOM VOMERO', category: 'ATHLETICS', price: 'Rp 1.799.000', rawPrice: 1799000, rating: 4, image: 'Nike-AirZoomVomero13.png', accentColor: '#6666FF', tags: ['PRIA', 'WANITA', 'SNKRS'] },
-            { id: 4, name: 'HOODIE AIR JORDAN', category: 'HOODIES', price: 'Rp 1.399.000', rawPrice: 1399000, rating: 4.5, image: 'Hoodie Air Jordan Nike.png', accentColor: '#22313F', tags: ['PRIA', 'WANITA', 'DISKON'] },
-            { id: 5, name: 'Nike Shield CR7 Backpack', category: 'BAGS', price: 'Rp 899.000', rawPrice: 899000, rating: 5, image: 'Nike Shield CR7 Backpack Bag.png', accentColor: '#ffffff', tags: ['PRIA', 'WANITA', 'ANAK'] },
-            { id: 6, name: 'Hoodie Nike Dry Fit Sportswear', category: 'JACKETS', price: 'Rp 999.000', rawPrice: 999000, rating: 4, image: 'Hoodie Nike Dry Fit Sportswear.png', accentColor: '#3d3d3d', tags: ['PRIA', 'WANITA'] },
+            { id: 4, name: 'Nike Air Max 90', category: 'LIFESTYLE', price: 'Rp 1.599.000', rawPrice: 1599000, rating: 4, image: 'Nike-AirMax90.png', accentColor: '#6BB9F0', tags: ['ANAK', 'WANITA', 'SNKRS'] },
+            { id: 5, name: 'HOODIE AIR JORDAN', category: 'HOODIES', price: 'Rp 999.000', rawPrice: 999000, rating: 4, image: 'Hoodie Air Jordan Nike.png', accentColor: '#67809F', tags: ['PRIA', 'DISKON'] },
+            { id: 6, name: 'Nike Shield CR7 Backpack', category: 'BAGS', price: 'Rp 899.000', rawPrice: 899000, rating: 5, image: 'Nike Shield CR7 Backpack Bag.png', accentColor: '#ffffff', tags: ['PRIA', 'WANITA', 'ANAK'] },
             { id: 7, name: 'Nike Jersey Sleeve Football', category: 'TSHIRT', price: 'Rp 299.000', rawPrice: 299000, rating: 3, image: 'Nike Jersey Sleeve Football.png', accentColor: '#10b981', tags: ['PRIA', 'WANITA', 'ANAK', 'DISKON'] },
             { id: 8, name: 'Jersey Lengan Nike Dri-FIT', category: 'TSHIRT', price: 'Rp 789.000', rawPrice: 789000, rating: 4, image: 'Jersey Lengan Nike Dri-FIT.png', accentColor: '#ef4444', tags: ['PRIA', 'WANITA'] },
+
         ];
 
         // State Daftar Sepatu yang Sedang Ditampilkan (Mendukung Filter)
