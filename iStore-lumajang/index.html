@@ -72,9 +72,9 @@
             <a href="#trust" class="hover:text-gray-400 transition">Kredibilitas</a>
             <a href="#features" class="hover:text-gray-400 transition">Layanan</a>
         </div>
-        <button class="bg-white text-black text-[10px] font-bold px-4 py-2 uppercase tracking-tighter hover:bg-gray-200 transition">
+        <a href="https://wa.me/6282264469991?text=Halo%20iStore%20Lumajang,%20saya%20ingin%20konsultasi." target="_blank" class="bg-white text-black text-[10px] font-bold px-4 py-2 uppercase tracking-tighter hover:bg-gray-200 transition inline-block cursor-pointer">
             Konsultasi
-        </button>
+        </a>
     </nav>
 
     <!-- Hero Section -->
@@ -260,9 +260,9 @@
             <h2 class="text-5xl md:text-7xl font-black mb-8 leading-tight">SIAP MELANGKAH KE<br>LEVEL BERIKUTNYA?</h2>
             <p class="text-lg mb-12 max-w-xl mx-auto font-medium">Tingkatkan produktivitas, kreativitas, dan gaya hidup Anda hari ini. Jangan biarkan teknologi lama menahan potensi Anda.</p>
             <div class="flex flex-col md:flex-row justify-center items-center gap-4">
-                <button class="bg-black text-white px-10 py-4 font-bold rounded-full text-sm uppercase tracking-widest hover:scale-105 transition">
+                <a href="https://wa.me/6281234567890?text=Halo%20iStore%20Lumajang,%20saya%20ingin%20konsultasi%20dan%20klaim%20promo%20gratis%20aksesoris." target="_blank" class="bg-black text-white px-10 py-4 font-bold rounded-full text-sm uppercase tracking-widest hover:scale-105 transition inline-block cursor-pointer">
                     Konsultasi Gratis Sekarang
-                </button>
+                </a>
                 <p class="text-[10px] font-bold uppercase tracking-widest text-gray-400 mt-4 md:mt-0 italic">
                     *Dapatkan Aksesoris Gratis Senilai Rp 500rb Minggu Ini
                 </p>
@@ -275,9 +275,9 @@
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center opacity-50">
             <div class="text-xl font-bold italic mb-6 md:mb-0">iStore Lumajang</div>
             <div class="flex space-x-8 text-[10px] font-bold uppercase tracking-widest mb-6 md:mb-0">
-                <a href="#">FAQ</a>
-                <a href="#">Garansi</a>
-                <a href="#">Kontak</a>
+                <a href="#solution" class="hover:text-white transition-colors duration-300">FAQ</a>
+                <a href="#features" class="hover:text-white transition-colors duration-300">Garansi</a>
+                <a href="https://wa.me/6282264469991?text=Halo%20iStore%20Lumajang,%20saya%20butuh%20bantuan%20/info%20lebih%20lanjut." target="_blank" class="hover:text-white transition-colors duration-300">Kontak</a>
             </div>
             <div class="text-[10px]">© 2026 Created with ❤️ by Irvan Ai Studios</div>
         </div>
@@ -315,6 +315,24 @@
                 image: "Apple-Watch.png"
             }
         ];
+
+        let satisfactionChart = null; // Menyimpan instance chart
+
+        // Fungsi Ganti Tema
+        function toggleTheme() {
+            const htmlTag = document.documentElement;
+            const toggleBtn = document.getElementById('theme-toggle');
+            
+            if (htmlTag.classList.contains('dark')) {
+                htmlTag.classList.remove('dark');
+                toggleBtn.innerText = '🌞'; // Ubah ikon ke Matahari (Light Mode aktif)
+                updateChartTheme('light');
+            } else {
+                htmlTag.classList.add('dark');
+                toggleBtn.innerText = '🌙'; // Ubah ikon ke Bulan (Dark Mode aktif)
+                updateChartTheme('dark');
+            }
+        }
 
         function updateHero(index) {
             const product = products[index];
@@ -354,15 +372,22 @@
 
         function initChart() {
             const ctxChart = document.getElementById('satisfactionChart').getContext('2d');
-            new Chart(ctxChart, {
+            const isDark = document.documentElement.classList.contains('dark');
+            const textColor = isDark ? '#ffffff' : '#000000';
+            const gridColor = isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)';
+            const barColors = isDark 
+                ? ['rgba(255, 255, 255, 0.1)', 'rgba(255, 255, 255, 0.3)', 'rgba(255, 255, 255, 0.8)']
+                : ['rgba(0, 0, 0, 0.1)', 'rgba(0, 0, 0, 0.3)', 'rgba(0, 0, 0, 0.8)'];
+
+            satisfactionChart = new Chart(ctxChart, {
                 type: 'bar',
                 data: {
                     labels: ['2022', '2023', '2024 (Projected)'],
                     datasets: [{
                         label: 'Persentase Kepuasan (%)',
                         data: [82, 91, 98],
-                        backgroundColor: ['rgba(255, 255, 255, 0.1)', 'rgba(255, 255, 255, 0.3)', 'rgba(255, 255, 255, 0.8)'],
-                        borderColor: '#ffffff',
+                        backgroundColor: barColors,
+                        borderColor: textColor,
                         borderWidth: 1
                     }]
                 },
@@ -376,16 +401,35 @@
                         y: {
                             beginAtZero: true,
                             max: 100,
-                            grid: { color: 'rgba(255,255,255,0.05)' },
-                            ticks: { color: '#666', font: { size: 10 } }
+                            grid: { color: gridColor },
+                            ticks: { color: isDark ? '#666' : '#999', font: { size: 10 } }
                         },
                         x: {
                             grid: { display: false },
-                            ticks: { color: '#fff', font: { weight: 'bold' } }
+                            ticks: { color: textColor, font: { weight: 'bold' } }
                         }
                     }
                 }
             });
+        }
+
+        // Fungsi memperbarui warna Chart saat mode diganti
+        function updateChartTheme(theme) {
+            if (!satisfactionChart) return;
+            
+            const isDark = theme === 'dark';
+            const textColor = isDark ? '#ffffff' : '#000000';
+            const gridColor = isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)';
+            const barColors = isDark 
+                ? ['rgba(255, 255, 255, 0.1)', 'rgba(255, 255, 255, 0.3)', 'rgba(255, 255, 255, 0.8)']
+                : ['rgba(0, 0, 0, 0.1)', 'rgba(0, 0, 0, 0.3)', 'rgba(0, 0, 0, 0.8)'];
+
+            satisfactionChart.data.datasets[0].backgroundColor = barColors;
+            satisfactionChart.data.datasets[0].borderColor = textColor;
+            satisfactionChart.options.scales.x.ticks.color = textColor;
+            satisfactionChart.options.scales.y.grid.color = gridColor;
+            satisfactionChart.options.scales.y.ticks.color = isDark ? '#666' : '#999';
+            satisfactionChart.update();
         }
 
         window.onload = () => {
